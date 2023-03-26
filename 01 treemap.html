@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://www.nyahua.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['treemap'] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
+                ['China', null, 0, 0],
+                ['Beijing', 'China', 4161.1, 4161.1],
+                ['Tianjin', 'China', 1631.13, 1631.13],
+                ['Hebei', 'China', 4237.04, 4237.04],
+                ['Shanxi', 'China', 2564.26, 2564.26],
+                ['Inner Mongolia', 'China', 2315.87, 2315.87],
+                ['Liaoning', 'China', 2897.51, 2897.51],
+                ['Jilin', 'China', 1307.02, 1307.02],
+                ['Heilongjiang', 'China', 1590.1, 1590.1],
+                ['Shanghai', 'China', 4465.28, 4465.28],
+                ['Jiangsu', 'China', 12287.56, 12287.56],
+                ['Zhejiang', 'China', 7771.54, 7771.54],
+                ['Anhui', 'China', 4504.5, 4504.5],
+                ['Fujian', 'China', 5310.99, 5310.99],
+                ['Jiangxi', 'China', 3207.47, 3207.47],
+                ['Shandong', 'China', 8743.51, 8743.51],
+                ['Henan', 'China', 6134.51, 6134.51],
+                ['Hubei', 'China', 5373.49, 5373.49],
+                ['Hunan', 'China', 4867.04, 4867.04],
+                ['Guangdong', 'China', 12911.86, 12911.86],
+                ['Guangxi', 'China', 2630.09, 2630.09],
+                ['Hainan', 'China', 681.82, 681.82],
+                ['Chongqing', 'China', 2912.9, 2912.9],
+                ['Sichuan', 'China', 5674.98, 5674.98],
+                ['Guizhou', 'China', 2016.46, 2016.46],
+                ['Yunnan', 'China', 2895.42, 2895.42],
+                ['Tibet', 'China', 213.26, 213.26],
+                ['Shaanxi', 'China', 3277.27, 3277.27],
+                ['Gansu', 'China', 1120.16, 1120.16],
+                ['Qinghai', 'China', 361.01, 361.01],
+                ['Ningxia', 'China', 506.96, 506.96],
+                ['Xinjiang', 'China', 1774.13, 1774.13]
+            ]);
+
+            var options = {
+                headerHeight: 15,
+                height: 500,
+                showScale: true,
+                generateTooltip: showFullTooltip,
+            };
+
+            function showFullTooltip(row, size, value) {
+                return '<div style="background:#fd9; padding:10px; border-style:solid">' +
+                       '<span style="font-family:Courier"><b>' + data.getValue(row, 0) +
+                       '</b>, ' + data.getValue(row, 3) + ' </div>';
+              }
+
+            tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+            tree.draw(data, options);
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="chart_div"></div>
+</body>
+
+</html>

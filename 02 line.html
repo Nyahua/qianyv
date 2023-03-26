@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://www.nyahua.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { packages: ['corechart', 'line'] });
+        google.charts.setOnLoadCallback(drawBasic);
+
+        function drawBasic() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Year');
+            data.addColumn('number', 'GDP (BCNY)');
+
+            data.addRows([
+            ['2003', 13657.63],
+            ['2004', 16141.54],
+            ['2005', 18599.89],
+            ['2006', 21902.85],
+            ['2007', 27070.4],
+            ['2008', 32122.95],
+            ['2009', 34793.49],
+            ['2010', 41035.41],
+            ['2011', 48339.28],
+            ['2012', 53732.9],
+            ['2013', 58814.12],
+            ['2014', 64438.02],
+            ['2015', 68557.12],
+            ['2016', 74269.41],
+            ['2017', 83094.57],
+            ['2018', 91524.35],
+            ['2019', 98375.12],
+            ['2020', 100545.13],
+            ['2021', 113880.71],
+            ['2022', 119721.5]
+            ]);
+
+            var options = {
+                width: 1000,
+                height: 500,
+                chart: {
+                    title: 'China  GDP 2003-2022',
+                    subtitle: 'Data source: National Bureau of Statistics of China',
+                },
+                hAxis: {
+                    title: 'Past 20 Years'
+                },
+                vAxis: {
+                    title: 'GDP of China'
+                },
+ 
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="chart_div"></div>
+</body>
+
+</html>
